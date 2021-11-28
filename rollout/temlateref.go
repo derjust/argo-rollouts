@@ -250,7 +250,7 @@ func (r *informerBasedTemplateResolver) updateRolloutsReferenceAnnotation(obj in
 			ro.Spec.Template.Spec.Containers = []corev1.Container{}
 			_, err := r.argoprojclientset.ArgoprojV1alpha1().Rollouts(ro.Namespace).Update(context.TODO(), ro, v1.UpdateOptions{})
 			if err != nil {
-				log.Errorf("Cannot update the workload-ref/annotation for %s/%s", ro.GetName(), ro.GetNamespace())
+				log.Errorf("Cannot update the workload-ref/annotation for %s/%s: %v", ro.GetName(), ro.GetNamespace(), err)
 			}
 		}
 	}
