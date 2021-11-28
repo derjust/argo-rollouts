@@ -44,7 +44,7 @@ type RolloutSpec struct {
 	// selected by this will be the ones affected by this rollout.
 	// It must match the pod template's labels.
 	// +optional
-	Selector *metav1.LabelSelector `json:"selector" protobuf:"bytes,2,opt,name=selector"`
+	Selector *metav1.LabelSelector `json:"selector,omitempty" protobuf:"bytes,2,opt,name=selector"`
 	// Template describes the pods that will be created.
 	// +optional
 	Template corev1.PodTemplateSpec `json:"template" protobuf:"bytes,3,opt,name=template"`
